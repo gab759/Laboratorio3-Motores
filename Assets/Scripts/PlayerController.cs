@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEngine.Events;
 using TMPro;
 using System;
 
@@ -12,11 +12,11 @@ public class PlayerController : MonoBehaviour
 {
     public delegate void LifeUpdateDelegate(int newLife);
     public static event LifeUpdateDelegate OnLifeUpdated;
-    public delegate void PointUpdateDelegate(int newPoint);
+    public delegate void PointUpdateDelegate(int  newPoint);
     public static event PointUpdateDelegate OnPointUpdated;
     public static event Action OnPlayerDead;
     public static event Action OnPlayerWin;
-
+        
 
     private float speed = 3f;
     public GameObject player;
@@ -40,10 +40,28 @@ public class PlayerController : MonoBehaviour
     {
         _compRigidbody2D.velocity = new Vector2(direction * speed, _compRigidbody2D.velocity.y);
     }
-
+    public void OnMovement(InputAction.CallbackContext contex)
+    {
+        direction = contex.ReadValue<float>();
+    }
+    public void OnJump(InputAction.CallbackContext contex)
+    {
+        direction = contex.ReadValue<float>();
+        if (contex.performed) 
+        {
+            if (suelo || doubleJump)
+            {
+                if (!suelo)
+                {
+                    doubleJump = false;
+                }
+                _compRigidbody2D.velocity = new Vector2(_compRigidbody2D.velocity.x, jumpForce);
+            }
+        }
+    }
     private void Update()
     {
-        Inputs();
+        //Inputs();
         Check();
     }
     public void DecreaseLife(int amount)
@@ -194,16 +212,6 @@ public class PlayerController : MonoBehaviour
     }
     private void Inputs()
     {
-        direction = Input.GetAxisRaw("Horizontal");
-
-        if (Input.GetKeyDown(KeyCode.Space) && (suelo || doubleJump))
-        {
-            if (!suelo)
-            {
-                doubleJump = false;
-            }
-            _compRigidbody2D.velocity = new Vector2(_compRigidbody2D.velocity.x, jumpForce);
-        }
     }
     private void Check()
     {
