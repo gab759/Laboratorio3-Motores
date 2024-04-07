@@ -42,12 +42,11 @@ public class PlayerController : MonoBehaviour
     }
     public void OnMovement(InputAction.CallbackContext contex)
     {
-        direction = contex.ReadValue<float>();
+        direction = contex.ReadValue<float>();  
     }
     public void OnJump(InputAction.CallbackContext contex)
     {
-        direction = contex.ReadValue<float>();
-        if (contex.performed) 
+        if (contex.phase == InputActionPhase.Performed) 
         {
             if (suelo || doubleJump)
             {
@@ -59,9 +58,24 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    public void OnColorRed(InputAction.CallbackContext contex)
+    {
+          player.GetComponent<SpriteRenderer>().color = Color.red;
+          playerColor = 1;
+    }
+    public void OnColorBlue(InputAction.CallbackContext contex)
+    {
+        player.GetComponent<SpriteRenderer>().color = Color.blue;
+        playerColor = 2;
+    }
+    public void OnColorYellow(InputAction.CallbackContext contex)
+    {
+        player.GetComponent<SpriteRenderer>().color = Color.yellow;
+        playerColor = 4;
+    }
+
     private void Update()
     {
-        //Inputs();
         Check();
     }
     public void DecreaseLife(int amount)
@@ -86,13 +100,11 @@ public class PlayerController : MonoBehaviour
     }
     public void Rojo()
     {
-        player.GetComponent<SpriteRenderer>().color = Color.red;
-        playerColor = 1;
+        
     }
     public void Blue()
     {
-        player.GetComponent<SpriteRenderer>().color = Color.blue;
-        playerColor = 2;
+        
     }
     public void Green()
     {   
@@ -101,8 +113,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Yellow()
     {
-        player.GetComponent<SpriteRenderer>().color = Color.yellow;
-        playerColor = 4;
+        
     }
     public void Cyan()
     {
@@ -209,9 +220,6 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-    }
-    private void Inputs()
-    {
     }
     private void Check()
     {

@@ -2916,8 +2916,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 3503b4f0-0a6a-42c5-ab32-391b94897117
-    m_ActionName: Player/movemet[/Keyboard/a,/Keyboard/d]
+    m_ActionId: beb2f518-b9c8-4d8d-98c3-a99707c4f9bd
+    m_ActionName: Game/Movement[/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1308116300}
@@ -2932,11 +2932,59 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 6810420e-dcfe-4a71-b21b-b955979a7791
-    m_ActionName: Player/New action1[/Keyboard/space]
+    m_ActionId: 8d33e34f-32d4-4be0-a77f-7ccc39d247ca
+    m_ActionName: Game/Jump[/Keyboard/space,/DualSenseGamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1308116300}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnColorRed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c4a21db5-ff11-4f94-a1cc-a46e745b7d4e
+    m_ActionName: Game/Colors[/Keyboard/f,/Keyboard/g,/Keyboard/h,/DualSenseGamepadHID/buttonWest,/DualSenseGamepadHID/buttonNorth,/DualSenseGamepadHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1308116300}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnColorBlue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 15e5a3c6-368f-43d1-b899-60d31f8a7581
+    m_ActionName: Game/ColorBlue[/Keyboard/g]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1308116300}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnColorYellow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4ffc11de-ebc3-4102-be08-728d623c4e8c
+    m_ActionName: Game/ColorYellow[/Keyboard/h]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultControlScheme: Keybord and Mouse
+  m_DefaultActionMap: Game
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &1377803026
